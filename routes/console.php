@@ -1,5 +1,6 @@
 <?php
 
+use App\Console\Commands\CheckPhpFiles;
 use App\Console\Commands\MakeInterface;
 use App\Console\Commands\MakeRepository;
 use App\Console\Commands\MakeService;
