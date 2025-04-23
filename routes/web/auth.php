@@ -68,3 +68,6 @@ Route::get('reg', function () {
 Route::get('fg', function () {
     return view('backend.layouts.auth.pages.forget-password');
 });
+Route::get('conf', function () {
+    return view('backend.layouts.auth.pages.login');
+});
