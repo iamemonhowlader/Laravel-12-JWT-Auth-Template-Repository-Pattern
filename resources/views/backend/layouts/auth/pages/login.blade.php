@@ -1,4 +1,4 @@
-@extends('backend.layout.auth.app')
+@extends('backend.layouts.auth.app')
 
 @section('title')
     Sign In
