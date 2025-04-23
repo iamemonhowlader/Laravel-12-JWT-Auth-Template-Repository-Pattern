@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -40,6 +41,8 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
+            'handle' => Helper::generateUniqueSlug($request->last_name,'users', 'handle'),
+            'role_id' => 1,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

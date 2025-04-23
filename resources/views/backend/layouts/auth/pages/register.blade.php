@@ -75,7 +75,7 @@
                             <div class="mb-3">
                                 <label for="confirm-password" class="form-label">Confirm
                                     Password</label>
-                                <input type="password" id="confirm-password" class="form-control" name="password"
+                                <input type="password" id="confirm-password" class="form-control" name="password_confirmation"
                                     placeholder="**************">
                                 @error('password')
                                     <div class="validation-error">
