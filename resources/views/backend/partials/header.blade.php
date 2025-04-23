@@ -183,10 +183,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="index-2.html">
-                                    <i class="me-2 icon-xxs dropdown-item-icon" data-feather="power"></i>Sign
-                                    Out
-                                </a>
+                                <form class="dropdown-item" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button style="border: none; background: transparent; margin: 0px; padding: 0px;"><i class="me-2 icon-xxs dropdown-item-icon" data-feather="power"></i>Sign Out</button>
+                                </form>
                             </li>
                         </ul>
 
