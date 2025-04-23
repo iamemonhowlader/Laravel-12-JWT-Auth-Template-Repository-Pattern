@@ -19,18 +19,28 @@
                     <!-- Card body -->
                     <div class="card-body p-5">
                         <div class="mb-4">
-                            <a href="../index-2.html"><img src="{{asset('assets/backend/images/brand/logo/logo-2.svg')}}"
+                            <a href="../index-2.html"><img src="{{ asset('assets/backend/images/brand/logo/logo-2.svg') }}"
                                     class="mb-2  text-inverse" alt="Image"></a>
                             <p class="mb-6">Don't worry, we'll send you an email to reset your password.
                             </p>
+                            @if (session('status'))
+                                <p>{{ session('status') }}</p>
+                            @endif
                         </div>
                         <!-- Form -->
-                        <form>
+                        <form method="POST" action="{{ route('password.email') }}">
+                            @csrf
                             <!-- Email -->
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" id="email" class="form-control" name="email"
-                                    placeholder="Enter Your Email" required="">
+                                    :value="old('email')" placeholder="Enter Your Email">
+
+                                @error('email')
+                                    <div class="validation-error">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <!-- Button -->
                             <div class="mb-3 d-grid">
@@ -38,7 +48,7 @@
                                     Reset Password
                                 </button>
                             </div>
-                            <span>Don't have an account? <a href="sign-in.html">sign in</a></span>
+                            <span>Don't have an account? <a href="{{ route('register') }}">sign in</a></span>
                         </form>
                     </div>
                 </div>
