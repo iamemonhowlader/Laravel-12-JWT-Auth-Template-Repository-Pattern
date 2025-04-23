@@ -3,7 +3,7 @@
     <div class="navbar-custom navbar navbar-expand-lg">
         <div class="container-fluid px-0">
             <a class="navbar-brand d-block d-md-none" href="index-2.html">
-                <img src="assets/images/brand/logo/logo-2.svg" alt="Image">
+                <img src="{{ asset('assets/backend/images/brand/logo/logo-2.svg') }}" alt="Image">
             </a>
 
 
@@ -38,8 +38,7 @@
                 </form>
             </div>
             <!--Navbar nav -->
-            <ul
-                class="navbar-nav navbar-right-wrap ms-lg-auto d-flex nav-top-wrap align-items-center ms-4 ms-lg-0">
+            <ul class="navbar-nav navbar-right-wrap ms-lg-auto d-flex nav-top-wrap align-items-center ms-4 ms-lg-0">
                 <a href="#"
                     class="form-check form-switch theme-switch btn btn-ghost btn-icon rounded-circle mb-0 ">
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
@@ -50,14 +49,14 @@
 
                 <li class="dropdown stopevent ms-2">
                     <a class="btn btn-ghost btn-icon rounded-circle" href="#!" role="button"
-                        id="dropdownNotification" data-bs-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
+                        id="dropdownNotification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="icon-xs" data-feather="bell"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"
                         aria-labelledby="dropdownNotification">
                         <div>
-                            <div class="border-bottom px-3 pt-2 pb-3 d-flex
+                            <div
+                                class="border-bottom px-3 pt-2 pb-3 d-flex
       justify-content-between align-items-center">
                                 <p class="mb-0 text-dark fw-medium fs-4">Notifications</p>
                                 <a href="#!" class="text-muted">
@@ -140,10 +139,11 @@
                 </li>
                 <!-- List -->
                 <li class="dropdown ms-2">
-                    <a class="rounded-circle" href="#!" role="button" id="dropdownUser"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="rounded-circle" href="#!" role="button" id="dropdownUser" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <div class="avatar avatar-md avatar-indicators avatar-online">
-                            <img alt="avatar" src="assets/images/avatar/avatar-11.jpg" class="rounded-circle">
+                            <img alt="avatar" src="{{ asset('assets/backend/images/avatar/avatar-6.jpg') }}"
+                                class="rounded-circle">
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
@@ -167,8 +167,8 @@
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#!">
-                                    <i class="me-2 icon-xxs dropdown-item-icon"
-                                        data-feather="activity"></i>Activity Log
+                                    <i class="me-2 icon-xxs dropdown-item-icon" data-feather="activity"></i>Activity
+                                    Log
                                 </a>
 
 
@@ -178,14 +178,16 @@
                             <li>
                                 <a class="dropdown-item d-flex align-items-center" href="#!">
 
-                                    <i class="me-2 icon-xxs dropdown-item-icon"
-                                        data-feather="settings"></i>Settings
+                                    <i class="me-2 icon-xxs dropdown-item-icon" data-feather="settings"></i>Settings
                                 </a>
                             </li>
                             <li>
                                 <form class="dropdown-item" method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button style="border: none; background: transparent; margin: 0px; padding: 0px;"><i class="me-2 icon-xxs dropdown-item-icon" data-feather="power"></i>Sign Out</button>
+                                    <button
+                                        style="border: none; background: transparent; margin: 0px; padding: 0px;"><i
+                                            class="me-2 icon-xxs dropdown-item-icon" data-feather="power"></i>Sign
+                                        Out</button>
                                 </form>
                             </li>
                         </ul>
