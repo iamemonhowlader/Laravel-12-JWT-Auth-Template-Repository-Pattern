@@ -24,7 +24,7 @@
                             <p class="mb-6">Don't worry, we'll send you an email to reset your password.
                             </p>
                             @if (session('status') == 'verification-link-sent')
-                                <div class="mb-4 font-medium text-sm text-green-600">
+                                <div class="mb-4 font-medium text-sm text-success">
                                     {{ __('A new verification link has been sent to the email address you provided during registration.') }}
                                 </div>
                             @endif

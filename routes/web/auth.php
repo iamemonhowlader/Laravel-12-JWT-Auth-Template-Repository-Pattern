@@ -57,17 +57,3 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
-
-
-Route::get('log', function () {
-    return view('backend.layouts.auth.pages.login');
-});
-Route::get('reg', function () {
-    return view('backend.layouts.auth.pages.register');
-});
-Route::get('fg', function () {
-    return view('backend.layouts.auth.pages.forget-password');
-});
-Route::get('conf', function () {
-    return view('backend.layouts.auth.pages.login');
-});
