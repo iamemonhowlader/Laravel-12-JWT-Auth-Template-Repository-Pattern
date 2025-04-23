@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
+use App\Http\Controllers\Api\V1\Controller;
 use App\Http\Resources\Api\V1\Auth\LoginResponce;
 use App\Http\Resources\Api\V1\Auth\RegisterUserResource;
 use App\Services\Api\V1\Auth\AuthService;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Auth\LoginRequest;
 use App\Http\Requests\Api\V1\Auth\RegisterRequest;
-use App\Traits\V1\ApiResponse;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;

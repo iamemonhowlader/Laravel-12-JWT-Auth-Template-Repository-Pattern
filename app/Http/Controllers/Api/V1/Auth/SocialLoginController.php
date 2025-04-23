@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Exceptions\SocialLoginException;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\V1\Controller;
 use App\Http\Requests\Api\V1\Auth\SocialLoginRequest;
 use App\Services\Api\V1\Auth\SocialLoginService;
-use App\Traits\V1\ApiResponse;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;

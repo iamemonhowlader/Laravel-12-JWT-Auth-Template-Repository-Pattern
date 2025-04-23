@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\V1\Controller;
 use App\Http\Requests\Api\V1\Auth\PasswordChangeRequest;
 use App\Services\Api\V1\Auth\PasswordService;
-use App\Traits\V1\ApiResponse;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
