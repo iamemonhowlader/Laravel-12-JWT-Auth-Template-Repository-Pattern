@@ -34,7 +34,7 @@
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" id="email" class="form-control" name="email"
-                                    :value="old('email')" placeholder="Enter Your Email">
+                                    value="{{old('email')}}" placeholder="Enter Your Email">
 
                                 @error('email')
                                     <div class="validation-error">

@@ -29,7 +29,7 @@
                             <!-- Username -->
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" class="form-control" name="email"
+                                <input type="email" id="email" class="form-control" name="email" value="{{old('email')}}"
                                     placeholder="Email address here">
                                 @error('email')
                                     <div class="validation-error">
