@@ -1,7 +1,7 @@
 @extends('backend.layouts.auth.app')
 
 @section('title')
-    {{ env('APP_NAME') }} || Sign In
+    {{ env('APP_NAME') }} || Lign In
 @endsection
 
 @section('main')
