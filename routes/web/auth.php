@@ -59,9 +59,12 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('log', function(){
+Route::get('log', function () {
     return view('backend.layouts.auth.pages.login');
 });
-Route::get('reg', function(){
+Route::get('reg', function () {
     return view('backend.layouts.auth.pages.register');
+});
+Route::get('fg', function () {
+    return view('backend.layouts.auth.pages.forget-password');
 });
