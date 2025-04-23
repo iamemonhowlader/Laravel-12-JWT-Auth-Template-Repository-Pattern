@@ -7,27 +7,27 @@
     <meta name="author" content="Codescandy">
 
     <title>@yield('title')</title>
-    
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- ===============================================-->
-    <!--    Favicons-->
+    <!--Favicons-->
     <!-- ===============================================-->
     @include('backend.partials.favicon')
 
     <!-- ===============================================-->
-    <!--    Stylesheets-->
+    <!--Stylesheets-->
     <!-- ===============================================-->
     @include('backend.partials.styles')
 </head>
 
 <body>
     <!-- ===============================================-->
-    <!--    Main Content-->
+    <!--Main Content-->
     <!-- ===============================================-->
     @yield('main')
 
     <!-- ===============================================-->
-    <!--    JavaScripts-->
+    <!--JavaScripts-->
     <!-- ===============================================-->
     @include('backend.partials.scripts')
 </body>

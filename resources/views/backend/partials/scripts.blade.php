@@ -7,3 +7,5 @@
 
 <!-- Theme JS -->
 <script src="{{asset('assets/backend/js/theme.min.js')}}"></script>
+<script src="{{asset('assets/backend/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
+<script src="{{asset('assets/backend/js/vendors/chart.js')}}"></script>
