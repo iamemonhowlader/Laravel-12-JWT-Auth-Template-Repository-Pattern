@@ -19,33 +19,42 @@
                     <!-- Card body -->
                     <div class="card-body p-6">
                         <div class="mb-4">
-                            <a href="../index-2.html"><img src="{{asset('assets/backend/images/brand/logo/logo-2.svg')}}"
+                            <a href="../index-2.html"><img src="{{ asset('assets/backend/images/brand/logo/logo-2.svg') }}"
                                     class="mb-2 text-inverse" alt="Image"></a>
                             <p class="mb-6">Please enter your user information.</p>
                         </div>
                         <!-- Form -->
-                        <form>
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
                             <!-- Username -->
                             <div class="mb-3">
-                                <label for="email" class="form-label">Username or email</label>
+                                <label for="email" class="form-label">Email</label>
                                 <input type="email" id="email" class="form-control" name="email"
-                                    placeholder="Email address here" required="">
+                                    placeholder="Email address here">
+                                @error('email')
+                                    <div class="validation-error">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <!-- Password -->
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" id="password" class="form-control" name="password"
-                                    placeholder="**************" required="">
+                                    placeholder="**************">
+                                @error('password')
+                                    <div class="validation-error">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <!-- Checkbox -->
-                            <div class="d-lg-flex justify-content-between align-items-center
-                  mb-4">
+                            <div class="d-lg-flex justify-content-between align-items-center mb-4">
                                 <div class="form-check custom-checkbox">
-                                    <input type="checkbox" class="form-check-input" id="rememberme">
+                                    <input type="checkbox" class="form-check-input" id="rememberme" name="remember">
                                     <label class="form-check-label" for="rememberme">Remember
                                         me</label>
                                 </div>
-
                             </div>
                             <div>
                                 <!-- Button -->

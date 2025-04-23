@@ -31,7 +31,7 @@
                             <div class="mb-3">
                                 <label for="first_name" class="form-label">First Name</label>
                                 <input type="text" id="first_name" class="form-control" name="first_name"
-                                    placeholder="User Name">
+                                    placeholder="First Name">
                                 @error('first_name')
                                     <div class="validation-error">
                                         {{ $message }}
@@ -42,7 +42,7 @@
                             <div class="mb-3">
                                 <label for="last_name" class="form-label">Last Name</label>
                                 <input type="text" id="last_name" class="form-control" name="last_name"
-                                    placeholder="User Name">
+                                    placeholder="Last Name">
                                 @error('last_name')
                                     <div class="validation-error">
                                         {{ $message }}
