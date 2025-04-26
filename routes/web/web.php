@@ -11,8 +11,3 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-
-
-Route::get('mail-setting', function(){
-    return view('backend.layouts.mail_setting.index');
-});
