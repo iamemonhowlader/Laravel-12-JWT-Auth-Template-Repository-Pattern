@@ -28,12 +28,13 @@
                                         <!-- Tab content -->
                                         <div class="tab-content p-4" id="pills-tabContent-validation">
                                             <!-- Validation Form -->
-                                            <form class="row g-3 needs-validation" novalidate method="POST" action="{{route('v1.setting.mail.store')}}">
+                                            <form class="row g-3 needs-validation" novalidate method="POST"
+                                                action="{{ route('v1.setting.mail.store') }}">
                                                 @csrf
                                                 <div class="col-md-4">
                                                     <label for="mail_mailer" class="form-label">Mail Mailer</label>
                                                     <input type="text" class="form-control" id="mail_mailer"
-                                                        name="mail_mailer" value="{{ old('mail_mailer') }}"
+                                                        name="mail_mailer" value="{{ env('MAIL_MAILER') }}"
                                                         placeholder="smtp">
                                                     @error('mail_mailer')
                                                         <div class="validation-error">
@@ -44,7 +45,7 @@
                                                 <div class="col-md-4">
                                                     <label for="mail_host" class="form-label">Mail Host</label>
                                                     <input type="text" class="form-control" id="mail_host"
-                                                        name="mail_host" value="{{ old('mail_host') }}"
+                                                        name="mail_host" value="{{ env('MAIL_HOST') }}"
                                                         placeholder="mail.domain.com">
                                                     @error('mail_host')
                                                         <div class="validation-error">
@@ -54,8 +55,8 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label for="mail_port" class="form-label">Mail Port</label>
-                                                    <input type="text" class="form-control" id="mail_port" name="mail_port"
-                                                        value="{{ old('mail_port') }}" placeholder="468">
+                                                    <input type="text" class="form-control" id="mail_port"
+                                                        name="mail_port" value="{{ env('MAIL_PORT') }}" placeholder="468">
                                                     @error('mail_port')
                                                         <div class="validation-error">
                                                             {{ $message }}
@@ -65,7 +66,7 @@
                                                 <div class="col-md-3">
                                                     <label for="mail_username" class="form-label">Username</label>
                                                     <input type="text" class="form-control" id="mail_username"
-                                                        name="mail_username" value="{{ old('mail_username') }}"
+                                                        name="mail_username" value="{{ env('MAIL_USERNAME') }}"
                                                         placeholder="mail_username">
                                                     @error('mail_username')
                                                         <div class="validation-error">
@@ -76,7 +77,8 @@
                                                 <div class="col-md-3">
                                                     <label for="mail_password" class="form-label">Password</label>
                                                     <input type="password" class="form-control" id="mail_password"
-                                                        name="mail_password" placeholder="**********">
+                                                        name="mail_password" placeholder="**********"
+                                                        value="{{ env('MAIL_PASSWORD') }}">
                                                     @error('mail_password')
                                                         <div class="validation-error">
                                                             {{ $message }}
@@ -86,7 +88,7 @@
                                                 <div class="col-md-3">
                                                     <label for="mail_encryption" class="form-label">Encryption</label>
                                                     <input type="text" class="form-control" id="mail_encryption"
-                                                        name="mail_encryption" value="{{ old('mail_encryption') }}"
+                                                        name="mail_encryption" value="{{ env('MAIL_ENCRYPTION') }}"
                                                         placeholder="ssl">
                                                     @error('mail_encryption')
                                                         <div class="validation-error">
@@ -97,7 +99,7 @@
                                                 <div class="col-md-3">
                                                     <label for="mail_address" class="form-label">Mail Address</label>
                                                     <input type="text" class="form-control" id="mail_address"
-                                                        name="mail_address" value="{{ old('mail_address') }}"
+                                                        name="mail_address" value="{{ env('MAIL_FROM_ADDRESS') }}"
                                                         placeholder="yourmail@mail.com">
                                                     @error('mail_address')
                                                         <div class="validation-error">
@@ -113,10 +115,10 @@
                                                             This SMTP is mine and saved to use
                                                         </label>
                                                         @error('condition')
-                                                        <div class="validation-error">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                                            <div class="validation-error">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-12">

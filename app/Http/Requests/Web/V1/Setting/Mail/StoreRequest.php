@@ -29,6 +29,7 @@ class StoreRequest extends FormRequest
             'mail_password'   => 'nullable|string',
             'mail_encryption' => 'nullable|string',
             'mail_address'    => 'required|email',
+            'condition'       => 'required',
         ];
     }
 }
