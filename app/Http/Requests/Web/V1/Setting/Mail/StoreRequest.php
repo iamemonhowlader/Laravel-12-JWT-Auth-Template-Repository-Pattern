@@ -11,7 +11,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class StoreRequest extends FormRequest
             'mail_password'   => 'nullable|string',
             'mail_encryption' => 'nullable|string',
             'mail_address'    => 'required|email',
-            'condition'       => 'required',
+            'condition'    => 'required',
         ];
     }
 }

@@ -28,8 +28,9 @@
                                         <!-- Tab content -->
                                         <div class="tab-content p-4" id="pills-tabContent-validation">
                                             <!-- Validation Form -->
-                                            <form class="row g-3 needs-validation" method="POST"
-                                                action="{{ route('v1.setting.mail.store') }}" enctype="multipart/form-data">
+                                            <form class="row g-3 needs-validation"
+                                                action="{{ route('v1.setting.mail.store') }}" method="POST"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="col-md-4">
                                                     <label for="mail_mailer" class="form-label">Mail Mailer</label>
@@ -109,9 +110,9 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="invalidCheck" name="condition">
-                                                        <label class="form-check-label" for="invalidCheck">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            id="condition" name="condition">
+                                                        <label class="form-check-label" for="condition">
                                                             This SMTP is mine and saved to use
                                                         </label>
                                                         @error('condition')
