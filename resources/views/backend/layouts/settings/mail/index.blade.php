@@ -28,8 +28,8 @@
                                         <!-- Tab content -->
                                         <div class="tab-content p-4" id="pills-tabContent-validation">
                                             <!-- Validation Form -->
-                                            <form class="row g-3 needs-validation" novalidate method="POST"
-                                                action="{{ route('v1.setting.mail.store') }}">
+                                            <form class="row g-3 needs-validation" method="POST"
+                                                action="{{ route('v1.setting.mail.store') }}" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="col-md-4">
                                                     <label for="mail_mailer" class="form-label">Mail Mailer</label>
