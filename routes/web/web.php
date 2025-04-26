@@ -10,4 +10,5 @@ Route::get('/dashboard', function () {
     return view('backend.layouts.dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require 'v1/auth.php';
+require 'v1/settings/mail.php';
