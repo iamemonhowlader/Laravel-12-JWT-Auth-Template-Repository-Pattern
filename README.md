@@ -7,13 +7,13 @@ To Install & Run This Project, Follow These Steps:
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/Webgenius0/xiiaospeed-backend.git
+    git clone https://github.com/mdiktushar/Laravel-12-JWT-Auth-Template-Repository-Pattern.git
     ```
 
 2. Navigate to the project directory:
 
     ```sh
-    cd xiiaospeed-backend
+    cd christianmoo658-backend
     ```
 
 3. Install project dependencies:
