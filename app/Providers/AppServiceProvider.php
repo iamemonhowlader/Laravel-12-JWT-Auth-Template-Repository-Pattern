@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ForgetPasswordRepositoryInterface::class, ForgetPasswordRepository::class);
         $this->app->bind(OTPRepositoryInterface::class, OTPRepository::class);
         $this->app->bind(PasswordRepositoryInterface::class, PasswordRepository::class);
+
+        $this->app->bind(\App\Interfaces\V1\User\UserRepositoryInterface::class, \App\Repositories\V1\User\UserRepository::class);
     }
 
     /**
