@@ -11,6 +11,7 @@ use App\Repositories\V1\Auth\OTPRepository;
 use App\Repositories\V1\Auth\PasswordRepository;
 use App\Repositories\V1\Auth\UserRepository;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,6 +34,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Paginator::useBootstrapFive();
     }
 }
