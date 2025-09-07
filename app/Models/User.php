@@ -72,6 +72,14 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         return [];
     }
 
+    /**
+     * getRouteKeyName
+     * @return string
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'handle';
+    }
 
     /**
      * sccessor for avater attribute

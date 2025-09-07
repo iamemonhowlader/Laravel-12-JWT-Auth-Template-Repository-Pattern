@@ -48,6 +48,24 @@ class UserController extends Controller
     }
 
     /**
+     * show
+     * @param \App\Models\User $user
+     * @return RedirectResponse|View
+     */
+    public function show(User $user): RedirectResponse|View
+    {
+        try {
+            $compact = [
+                'user' => $user,
+            ];
+            return view('backend.layouts.user.show', $compact);
+        } catch (Exception $e) {
+            Log::error('UserController::index', ['error' => $e->getMessage()]);
+            return redirect()->back()->with('t-error', 'Something went wring..!');
+        }
+    }
+
+    /**
      * status
      * @param \App\Models\User $user
      * @return \Illuminate\Http\RedirectResponse
@@ -57,7 +75,7 @@ class UserController extends Controller
         try {
             $user->status = !$user->status;
             $user->save();
-            return redirect()->back()->with('t-success','Status updated');
+            return redirect()->back()->with('t-success', 'Status updated');
         } catch (Exception $e) {
             Log::error('UserController::status', ['error' => $e->getMessage()]);
             return redirect()->back()->with('t-error', 'Something went wring..!');

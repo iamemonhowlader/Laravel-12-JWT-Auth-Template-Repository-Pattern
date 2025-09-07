@@ -59,12 +59,13 @@ class UserService
                 ->addColumn('name', function ($data) {
                     $fullName = ($data->first_name ?? '') . ' ' . ($data->last_name ?? '');
                     $avatar = $data->avatar ? asset($data->avatar) : asset('assets/custom/images/avatar.jpg');
+                    $route = route('admin.user.show', $data->handle);
                     return '<td>
                                 <div class="d-flex align-items-center">
                                     <img src="' . $avatar . '" alt="Image" class="avatar avatar-sm rounded-circle">
                                     <div class="ms-2">
                                         <h5 class="mb-0">
-                                            <a href="#!" class="text-inherit">' . $fullName . '</a>
+                                            <a href="' . $route . '" class="text-inherit">' . $fullName . '</a>
                                         </h5>
                                     </div>
                                 </div>
@@ -76,7 +77,7 @@ class UserService
                     return $data->status ? '<td><span class="badge badge-success-soft rounded-pill">Active</span></td>' : '<td><span class="badge badge-danger-soft rounded-pill">Blocked</span></td>';
                 })
                 ->addColumn('action', function ($data) {
-                    $route = route('admin.user.status', $data->id);
+                    $route = route('admin.user.status', $data->handle);
                     return $data->status ? '<a href="' . $route . '"
                                 class="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
                                 data-template="lockOne">
