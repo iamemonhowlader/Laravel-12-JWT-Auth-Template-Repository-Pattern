@@ -1,0 +1,171 @@
+{
+  "info": {
+    "name": "Augustinaspucin API v1",
+    "_postman_id": "8f44c9f0-7d8a-4a58-9d5a-000000000001",
+    "description": "Auth-related endpoints discovered from routes.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8000/api" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Guest",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/v1/auth/login", "host": ["{{base_url}}"], "path": ["v1", "auth", "login"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"secret\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/v1/auth/register", "host": ["{{base_url}}"], "path": ["v1","auth","register"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"user@example.com\",\n  \"password\": \"secret\",\n  \"password_confirmation\": \"secret\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Change Password (guest block)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/v1/auth/change-password", "host": ["{{base_url}}"], "path": ["v1","auth","change-password"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"token\": \"otp-or-reset-token\",\n  \"password\": \"new-secret\",\n  \"password_confirmation\": \"new-secret\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Forget Password - OTP Send",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/v1/auth/forget-password/otp-send", "host": ["{{base_url}}"], "path": ["v1","auth","forget-password","otp-send"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Forget Password - OTP Match",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/v1/auth/forget-password/otp-match", "host": ["{{base_url}}"], "path": ["v1","auth","forget-password","otp-match"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"otp\": \"123456\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Forget Password - Reset Password",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/v1/auth/forget-password/reset-password", "host": ["{{base_url}}"], "path": ["v1","auth","forget-password","reset-password"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"token\": \"otp-or-reset-token\",\n  \"password\": \"new-secret\",\n  \"password_confirmation\": \"new-secret\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Social Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/v1/auth/social/login", "host": ["{{base_url}}"], "path": ["v1","auth","social","login"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider\": \"google\",\n  \"access_token\": \"oauth-access-token\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Authenticated",
+      "auth": { "type": "bearer", "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ] },
+      "item": [
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": { "raw": "{{base_url}}/v1/auth/user", "host": ["{{base_url}}"], "path": ["v1","auth","user"] }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/v1/auth/logout", "host": ["{{base_url}}"], "path": ["v1","auth","logout"] }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/v1/auth/refresh", "host": ["{{base_url}}"], "path": ["v1","auth","refresh"] }
+          }
+        },
+        {
+          "name": "OTP Send (auth block)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/v1/auth/otp-send", "host": ["{{base_url}}"], "path": ["v1","auth","otp-send"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purpose\": \"two_factor\" \n}"
+            }
+          }
+        },
+        {
+          "name": "OTP Match (auth block)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/v1/auth/otp-match", "host": ["{{base_url}}"], "path": ["v1","auth","otp-match"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"otp\": \"123456\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
