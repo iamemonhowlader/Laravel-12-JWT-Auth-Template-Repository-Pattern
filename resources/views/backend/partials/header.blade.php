@@ -46,7 +46,7 @@
 
                 </a>
                 </li>
-
+{{-- 
                 <li class="dropdown stopevent ms-2">
                     <a class="btn btn-ghost btn-icon rounded-circle" href="#!" role="button"
                         id="dropdownNotification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -136,14 +136,24 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> --}}
                 <!-- List -->
                 <li class="dropdown ms-2">
                     <a class="rounded-circle" href="#!" role="button" id="dropdownUser" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <div class="avatar avatar-md avatar-indicators avatar-online">
-                            <img alt="avatar" src="{{ asset('assets/backend/images/avatar/avatar-6.jpg') }}"
-                                class="rounded-circle">
+                            @php
+                                $user = auth()->user();
+                                $firstName = $user->first_name ?? 'User';
+                                $initial = strtoupper(substr($firstName, 0, 1));
+                                $colors = ['primary', 'success', 'info', 'warning', 'danger', 'secondary'];
+                                $colorIndex = ord($initial) % count($colors);
+                                $bgColor = $colors[$colorIndex];
+                            @endphp
+                            <div class="rounded-circle bg-{{ $bgColor }} text-white d-flex align-items-center justify-content-center"
+                                 style="width: 40px; height: 40px; font-weight: 600; font-size: 16px;">
+                                {{ $initial }}
+                            </div>
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
@@ -151,36 +161,36 @@
 
 
                             <div class="lh-1 ">
-                                <h5 class="mb-1"> John E. Grainger</h5>
-                                <a href="#!" class="text-inherit fs-6">View my profile</a>
+                                <h5 class="mb-1">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</h5>
+                                {{-- <a href="#!" class="text-inherit fs-6">View my profile</a> --}}
                             </div>
                             <div class=" dropdown-divider mt-3 mb-2"></div>
                         </div>
 
                         <ul class="list-unstyled">
 
-                            <li>
+                            {{-- <li>
                                 <a class="dropdown-item d-flex align-items-center" href="#!">
                                     <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
                                     Profile
                                 </a>
-                            </li>
-                            <li>
+                            </li> --}}
+                            {{-- <li>
                                 <a class="dropdown-item" href="#!">
                                     <i class="me-2 icon-xxs dropdown-item-icon" data-feather="activity"></i>Activity
                                     Log
                                 </a>
 
 
-                            </li>
+                            </li> --}}
 
 
-                            <li>
+                            {{-- <li>
                                 <a class="dropdown-item d-flex align-items-center" href="#!">
 
                                     <i class="me-2 icon-xxs dropdown-item-icon" data-feather="settings"></i>Settings
                                 </a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <form class="dropdown-item" method="POST" action="{{ route('logout') }}">
                                     @csrf

@@ -5,8 +5,7 @@
         <div class="h-100" data-simplebar>
             <!-- Brand logo -->
             <a class="navbar-brand" href="{{route('dashboard')}}">
-                <img src="{{ asset('assets/backend/images/brand/logo/logo-2.svg')}}"
-                    alt="dash ui - bootstrap 5 admin dashboard template">
+               Logo
             </a>
             <!-- Navbar nav -->
             <ul class="navbar-nav flex-column" id="sideNavbar">
