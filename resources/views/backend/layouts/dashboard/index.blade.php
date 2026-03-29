@@ -5,257 +5,153 @@
 @endsection
 
 @section('content')
-    <div id="app-content">
-
-        <!-- Container fluid -->
-        <div class="app-content-area">
-            <div class="bg-primary pt-10 pb-21 mt-n6 mx-n4"></div>
-            <div class="container-fluid mt-n22 ">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-12">
-                        <!-- Page header -->
-                        <div class="d-flex justify-content-between align-items-center mb-5">
-                            <div class="mb-2 mb-lg-0">
-                                <h3 class="mb-0 text-white">Dashboard Overview</h3>
-                            </div>
+    <div class="container-fluid py-5">
+        <!-- Page Top Header -->
+        <div class="row align-items-center mb-6">
+                    <div class="col-md-8">
+                        <div class="d-flex align-items-center mb-2">
+                             <div class="bg-primary-light rounded-circle p-2 me-3">
+                                 <i data-feather="terminal" class="text-primary icon-xs"></i>
+                             </div>
+                             <h1 class="h3 mb-0 fw-extrabold tracking-tight">Overview</h1>
+                        </div>
+                        <p class="text-muted mb-0">Monitor your project performance and team activity in real-time.</p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-4 mt-md-0">
+                        <div class="d-flex gap-2 justify-content-md-end">
+                            <button class="btn btn-outline-light border rounded-pill px-4 text-dark bg-white shadow-sm">
+                                <i data-feather="calendar" class="icon-xxs me-2 text-muted"></i>Last 30 Days
+                            </button>
+                            <button class="btn btn-modern-primary rounded-pill px-4">
+                                <i data-feather="plus" class="icon-xxs me-2"></i>New Project
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Stats Cards Row -->
-                <div class="row">
-                    <!-- Card 1: Projects -->
-                    <div class="col-xl-3 col-lg-6 col-md-12 col-12 mb-5">
-                        <div class="card h-100 shadow-sm border-0 rounded-3">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <h4 class="mb-0 text-muted fs-6">Projects</h4>
+                <!-- Stats Row: Compact & Smart -->
+                <div class="row g-4 mb-6">
+                    @php
+                        $stats = [
+                            ['label' => 'Revenue', 'value' => '$12,840', 'change' => '+14.5%', 'icon' => 'dollar-sign', 'color' => 'success'],
+                            ['label' => 'Active Projects', 'value' => '42', 'change' => '+8.2%', 'icon' => 'cpu', 'color' => 'primary'],
+                            ['label' => 'Completed', 'value' => '1,248', 'change' => '-2.4%', 'icon' => 'check-circle', 'color' => 'info'],
+                            ['label' => 'Issues', 'value' => '3', 'change' => 'Stabilized', 'icon' => 'alert-circle', 'color' => 'warning'],
+                        ];
+                    @endphp
+                    @foreach($stats as $stat)
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="card border-0 shadow-sm rounded-xl overflow-hidden group">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div class="icon-shape bg-light-{{ $stat['color'] }} text-{{ $stat['color'] }} rounded-lg p-2">
+                                        <i data-feather="{{ $stat['icon'] }}" class="icon-xs"></i>
                                     </div>
-                                    <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                        <i class="bi bi-briefcase fs-4"></i>
-                                    </div>
-                                </div>
-                                <!-- <div class="d-flex align-items-center">
-                                    <h2 class="fw-bold mb-0 display-4 text-dark">18</h2>
-                                    <span class="text-success ms-3 fw-medium">
-                                        <i class="bi bi-arrow-up-short me-1"></i>2 Completed
+                                    <span class="small fw-bold {{ str_contains($stat['change'], '+') ? 'text-success' : (str_contains($stat['change'], '-') ? 'text-danger' : 'text-muted') }}">
+                                        {{ $stat['change'] }}
                                     </span>
-                                </div> -->
+                                </div>
+                                <h3 class="fw-bold mb-1 h2 font-heading">{{ $stat['value'] }}</h3>
+                                <p class="text-muted small mb-0 fw-medium text-uppercase ls-wide">{{ $stat['label'] }}</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Card 2: Active Task -->
-                    <div class="col-xl-3 col-lg-6 col-md-12 col-12 mb-5">
-                        <div class="card h-100 shadow-sm border-0 rounded-3">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <h4 class="mb-0 text-muted fs-6">Active Task</h4>
-                                    </div>
-                                    <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                        <i class="bi bi-list-task fs-4"></i>
-                                    </div>
-                                </div>
-                                <!-- <div class="d-flex align-items-center">
-                                    <h2 class="fw-bold mb-0 display-4 text-dark">132</h2>
-                                    <span class="text-danger ms-3 fw-medium">
-                                        <i class="bi bi-arrow-down-short me-1"></i>28+
-                                    </span>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Teams -->
-                    <div class="col-xl-3 col-lg-6 col-md-12 col-12 mb-5">
-                        <div class="card h-100 shadow-sm border-0 rounded-3">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <h4 class="mb-0 text-muted fs-6">Teams</h4>
-                                    </div>
-                                    <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                        <i class="bi bi-people fs-4"></i>
-                                    </div>
-                                </div>
-                                <!-- <div class="d-flex align-items-center">
-                                    <h2 class="fw-bold mb-0 display-4 text-dark">12</h2>
-                                    <span class="text-success ms-3 fw-medium">
-                                        <i class="bi bi-arrow-up-short me-1"></i>1 New
-                                    </span>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Productivity -->
-                    <div class="col-xl-3 col-lg-6 col-md-12 col-12 mb-5">
-                        <div class="card h-100 shadow-sm border-0 rounded-3">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div>
-                                        <h4 class="mb-0 text-muted fs-6">Productivity</h4>
-                                    </div>
-                                    <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                        <i class="bi bi-bullseye fs-4"></i>
-                                    </div>
-                                </div>
-                                <!-- <div class="d-flex align-items-center">
-                                    <h2 class="fw-bold mb-0 display-4 text-dark">76%</h2>
-                                    <span class="text-success ms-3 fw-medium">
-                                        <i class="bi bi-arrow-up-short me-1"></i>5%
-                                    </span>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
-                <!-- Overview Section -->
-                <div class="row">
-                    <!-- Active Projects Table -->
-                    <div class="col-lg-8 col-12 mb-5">
-                        <div class="card h-100 shadow-sm border-0 rounded-3">
-                            <div class="card-header border-bottom-0 py-4 bg-white d-flex justify-content-between align-items-center">
-                                <h4 class="mb-0 fw-bold">Active Projects</h4>
-                                <a href="#" class="btn btn-outline-primary btn-sm rounded-pill">View All</a>
+                <div class="row g-4">
+                    <!-- Elegant Project List -->
+                    <div class="col-xl-9 col-lg-8 col-12">
+                        <div class="card border-0 shadow-sm rounded-xl overflow-hidden h-100">
+                            <div class="card-header bg-white border-bottom py-4 px-5 d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0 fw-bold">Live Activity</h4>
+                                <div class="dropdown">
+                                    <button class="btn btn-ghost btn-sm btn-icon rounded-circle" data-bs-toggle="dropdown">
+                                        <i data-feather="more-horizontal" class="icon-xs"></i>
+                                    </button>
+                                </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table text-nowrap mb-0 align-middle">
-                                    <thead class="table-light">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="bg-light-primary-subtle border-0">
                                         <tr>
-                                            <th>Project Name</th>
-                                            <th>Hours</th>
-                                            <th>Priority</th>
-                                            <th>Members</th>
-                                            <th>Progress</th>
+                                            <th class="ps-5 py-3 border-0 small text-uppercase fw-bold text-muted ls-wide">Project Name</th>
+                                            <th class="py-3 border-0 small text-uppercase fw-bold text-muted ls-wide">Phase</th>
+                                            <th class="py-3 border-0 small text-uppercase fw-bold text-muted ls-wide">Ownership</th>
+                                            <th class="pe-5 text-end border-0 small text-uppercase fw-bold text-muted ls-wide">Status</th>
                                         </tr>
                                     </thead>
-                                    <!-- <tbody>
+                                    <tbody class="border-top-0">
+                                        @php
+                                            $projects = [
+                                                ['name' => 'Design System 2.0', 'cat' => 'Infrastructure', 'phase' => 'Execution', 'user' => 'JD', 'status' => 'On Track', 'color' => 'success'],
+                                                ['name' => 'API Integration', 'cat' => 'Backend', 'phase' => 'UAT', 'user' => 'AM', 'status' => 'Pending', 'color' => 'warning'],
+                                                ['name' => 'User Feedback Bot', 'cat' => 'AI', 'phase' => 'Discovery', 'user' => 'RW', 'status' => 'Delayed', 'color' => 'danger'],
+                                                ['name' => 'Cloud Migration', 'cat' => 'DevOps', 'phase' => 'Testing', 'user' => 'SL', 'status' => 'Active', 'color' => 'primary'],
+                                            ];
+                                        @endphp
+                                        @foreach($projects as $p)
                                         <tr>
-                                            <td class="align-middle">
+                                            <td class="ps-5 py-4">
                                                 <div class="d-flex align-items-center">
-                                                    <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                                        <i class="bi bi-dropbox fs-4"></i>
+                                                    <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border: 1px solid var(--border-color);">
+                                                        <i data-feather="folder" class="text-muted icon-xxs"></i>
                                                     </div>
-                                                    <div class="ms-3">
-                                                        <h5 class="fw-bold mb-1">Dropbox Design System</h5>
-                                                        <p class="mb-0 text-muted fs-6">Web Design</p>
+                                                    <div>
+                                                        <h6 class="mb-1 fw-bold">{{ $p['name'] }}</h6>
+                                                        <span class="small text-muted">{{ $p['cat'] }}</span>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="align-middle">34</td>
-                                            <td class="align-middle"><span class="badge bg-light-warning text-warning rounded-pill">Medium</span></td>
-                                            <td class="align-middle">
-                                                <div class="avatar-group">
-                                                    <span class="avatar avatar-sm rounded-circle bg-danger text-white d-flex align-items-center justify-content-center">HD</span>
-                                                    <span class="avatar avatar-sm rounded-circle bg-success text-white d-flex align-items-center justify-content-center">AP</span>
-                                                    <span class="avatar avatar-sm rounded-circle bg-info text-white d-flex align-items-center justify-content-center">+3</span>
+                                            <td class="py-4">
+                                                <span class="small fw-bold text-dark">{{ $p['phase'] }}</span>
+                                            </td>
+                                            <td class="py-4">
+                                                <div class="avatar avatar-xs rounded-circle bg-soft-primary text-primary d-flex align-items-center justify-content-center" style="width: 28px; height: 28px; font-size: 10px; border: 1px solid var(--primary-light);">
+                                                    {{ $p['user'] }}
                                                 </div>
                                             </td>
-                                            <td class="align-middle">
-                                                <div class="d-flex align-items-center">
-                                                    <span class="me-2">15%</span>
-                                                    <div class="progress w-100" style="height: 6px;">
-                                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 15%"></div>
-                                                    </div>
-                                                </div>
+                                            <td class="pe-5 text-end py-4">
+                                                <span class="badge rounded-pill bg-light-{{ $p['color'] }} text-{{ $p['color'] }} border-0 px-3 py-2 small fw-bold">
+                                                    <i class="bi bi-circle-fill me-1" style="font-size: 6px;"></i> {{ $p['status'] }}
+                                                </span>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="align-middle">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="icon-shape icon-md bg-light-success text-success rounded-2">
-                                                        <i class="bi bi-slack fs-4"></i>
-                                                    </div>
-                                                    <div class="ms-3">
-                                                        <h5 class="fw-bold mb-1">Slack Team UI</h5>
-                                                        <p class="mb-0 text-muted fs-6">Product Design</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-middle">47</td>
-                                            <td class="align-middle"><span class="badge bg-light-danger text-danger rounded-pill">High</span></td>
-                                            <td class="align-middle">
-                                                <div class="avatar-group">
-                                                     <span class="avatar avatar-sm rounded-circle bg-primary text-white d-flex align-items-center justify-content-center">JK</span>
-                                                </div>
-                                            </td>
-                                            <td class="align-middle">
-                                                <div class="d-flex align-items-center">
-                                                    <span class="me-2">35%</span>
-                                                    <div class="progress w-100" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 35%"></div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                             <td class="align-middle">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="icon-shape icon-md bg-light-warning text-warning rounded-2">
-                                                        <i class="bi bi-github fs-4"></i>
-                                                    </div>
-                                                    <div class="ms-3">
-                                                        <h5 class="fw-bold mb-1">GitHub Satellite</h5>
-                                                        <p class="mb-0 text-muted fs-6">Web Development</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-middle">120</td>
-                                            <td class="align-middle"><span class="badge bg-light-info text-info rounded-pill">Low</span></td>
-                                            <td class="align-middle">
-                                                 <div class="avatar-group">
-                                                    <span class="avatar avatar-sm rounded-circle bg-dark text-white d-flex align-items-center justify-content-center">M</span>
-                                                     <span class="avatar avatar-sm rounded-circle bg-warning text-white d-flex align-items-center justify-content-center">+2</span>
-                                                </div>
-                                            </td>
-                                            <td class="align-middle">
-                                                <div class="d-flex align-items-center">
-                                                    <span class="me-2">75%</span>
-                                                    <div class="progress w-100" style="height: 6px;">
-                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 75%"></div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody> -->
+                                        @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tasks Performance Card -->
-                     <div class="col-lg-4 col-12 mb-5">
-                        <div class="card h-100 shadow-sm border-0 rounded-3">
-                             <div class="card-header border-bottom-0 py-4 bg-white">
-                                <h4 class="mb-0 fw-bold">Tasks Performance</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-center mb-4 text-center">
-                                    <div class="chart-box" style="width: 150px; height: 150px; background: conic-gradient(#624bff 0% 76%, #f5f7fa 76% 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative;">
-                                         <div style="background: white; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                             <span class="fw-bold fs-3">76%</span>
-                                         </div>
-                                    </div>
+                    <!-- Right Panel: Smart Alerts -->
+                    <div class="col-xl-3 col-lg-4 col-12">
+                        <div class="card border-0 shadow-sm rounded-xl overflow-hidden mb-4">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-4">Quick Insights</h5>
+                                <div class="p-3 bg-light-primary rounded-lg border-0 mb-3">
+                                    <h6 class="fw-bold text-primary small mb-2"><i data-feather="zap" class="icon-xxs me-1"></i> Performance Tip</h6>
+                                    <p class="small text-muted mb-0">Optimize your media assets to improve page load speed by roughly 12%.</p>
                                 </div>
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <h5 class="mb-0 text-muted fs-6"><i class="bi bi-circle-fill text-primary mt-1 me-2 fs-6"></i>Completed</h5>
-                                        <span class="fw-bold">76%</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="mb-0 text-muted fs-6"><i class="bi bi-circle-fill text-light mt-1 me-2 fs-6"></i>In-Progress</h5>
-                                        <span class="fw-bold">24%</span>
-                                    </div>
+                                <div class="p-3 bg-light border-0 rounded-lg">
+                                    <h6 class="fw-bold text-muted small mb-2"><i data-feather="clock" class="icon-xxs me-1"></i> System Update</h6>
+                                    <p class="small text-muted mb-0">Database maintenance is scheduled for Sunday at 02:00 UTC.</p>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="card bg-primary border-0 rounded-xl p-4 position-relative" style="overflow: hidden;">
+                             <div class="position-relative" style="z-index: 2;">
+                                 <h4 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.15rem; line-height: 1.4;">Professional Support</h4>
+                                 <p class="small mb-4" style="color: #334155; line-height: 1.6;">Unlock premium features and direct support from our dev team.</p>
+                                 <button class="btn btn-sm rounded-pill px-4 fw-bold" style="background: #ffffff; color: var(--primary);">Upgrade Now</button>
+                             </div>
+                             <div class="position-absolute" style="bottom: -20px; right: -20px; z-index: 1; opacity: 0.1; pointer-events: none;">
+                                 <i data-feather="award" style="width: 130px; height: 130px; transform: rotate(-15deg); display: block;"></i>
+                             </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 @endsection

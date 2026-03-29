@@ -23,23 +23,17 @@
 <body>
 
     <main id="main-wrapper" class="main-wrapper">
-        <!-- ===============================================-->
-        <!--header-->
-        <!-- ===============================================-->
-        @include('backend.partials.header')
-
-
-        <!-- ===============================================-->
-        <!--navbar vertical-->
-        <!-- ===============================================-->
         @include('backend.partials.navbar')
-
-
-        <!-- ===============================================-->
-        <!--content-->
-        <!-- ===============================================-->
-        @yield('content')
-
+        
+        <div id="db-wrapper">
+            @include('backend.partials.header')
+            
+            <div id="app-content">
+                <div class="app-content-area">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- ===============================================-->

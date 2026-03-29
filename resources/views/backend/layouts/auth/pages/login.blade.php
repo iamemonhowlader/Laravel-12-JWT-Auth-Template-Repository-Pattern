@@ -1,86 +1,79 @@
 @extends('backend.layouts.auth.app')
 
 @section('title')
-    {{ env('APP_NAME') }} || Lign In
+    {{ env('APP_NAME') }} || Sign In
 @endsection
 
 @section('main')
-    <main class="container d-flex flex-column">
-        <div class="row align-items-center justify-content-center g-0
-        min-vh-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xxl-4 py-8 py-xl-0">
-                <a href="#" class="form-check form-switch theme-switch btn btn-light btn-icon rounded-circle d-none ">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                    <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-
-                </a>
-                <!-- Card -->
-                <div class="card smooth-shadow-md">
-                    <!-- Card body -->
-                    <div class="card-body p-6">
-                        <div class="mb-4">
-                            {{-- <a href="../index-2.html"><img src="{{ asset('assets/backend/images/brand/logo/logo-2.svg') }}"
-                                    class="mb-2 text-inverse" alt="Image"></a> --}}
-                            <p class="mb-6">Please enter your user information.</p>
-                        </div>
-                        <!-- Form -->
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <!-- Username -->
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" class="form-control" name="email" value="{{old('email')}}"
-                                    placeholder="Email address here">
-                                @error('email')
-                                    <div class="validation-error">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+    <div class="auth-wrapper py-6">
+        <div class="container d-flex flex-column">
+            <div class="row align-items-center justify-content-center g-0 min-vh-100">
+                <div class="col-12 col-md-8 col-lg-5 col-xxl-4">
+                    <!-- Card -->
+                    <div class="card auth-card border-0 shadow-lg">
+                        <!-- Card body -->
+                        <div class="card-body p-5">
+                            <div class="mb-4 text-center">
+                                <h1 class="mb-1 fw-bold display-5 text-dark">Welcome Back</h1>
+                                <p class="text-muted">Please enter your details to sign in.</p>
                             </div>
-                            <!-- Password -->
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" id="password" class="form-control" name="password"
-                                    placeholder="**************">
-                                @error('password')
-                                    <div class="validation-error">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <!-- Checkbox -->
-                            <div class="d-lg-flex justify-content-between align-items-center mb-4">
-                                <div class="form-check custom-checkbox">
-                                    <input type="checkbox" class="form-check-input" id="rememberme" name="remember">
-                                    <label class="form-check-label" for="rememberme">Remember
-                                        me</label>
+                            
+                            <!-- Form -->
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                <!-- Email -->
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" id="email" class="form-control form-control-lg" name="email" 
+                                        value="{{old('email')}}" placeholder="name@company.com" required autofocus>
+                                    @error('email')
+                                        <div class="text-danger small mt-1">
+                                            <i class="bi bi-exclamation-circle me-1"></i> {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                            </div>
-                            <div>
+                                
+                                <!-- Password -->
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <label for="password" class="form-label mb-0">Password</label>
+                                        <a href="{{route('password.request')}}" class="text-primary small fw-semibold text-decoration-none">Forgot password?</a>
+                                    </div>
+                                    <input type="password" id="password" class="form-control form-control-lg" name="password"
+                                        placeholder="••••••••" required>
+                                    @error('password')
+                                        <div class="text-danger small mt-1">
+                                            <i class="bi bi-exclamation-circle me-1"></i> {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                
+                                <!-- Checkbox -->
+                                <div class="mb-4">
+                                    <div class="form-check custom-checkbox">
+                                        <input type="checkbox" class="form-check-input" id="rememberme" name="remember">
+                                        <label class="form-check-label text-muted" for="rememberme">Keep me logged in</label>
+                                    </div>
+                                </div>
+                                
                                 <!-- Button -->
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Sign
-                                        in</button>
+                                    <button type="submit" class="btn btn-modern-primary py-3 fw-bold">
+                                        Sign In to Account
+                                    </button>
                                 </div>
-
-                                <div class="d-md-flex justify-content-between mt-4">
-                                    <div class="mb-2 mb-md-0">
-                                        <a href="{{route('register')}}" class="fs-5">Create An
-                                            Account </a>
-                                    </div>
-                                    <div>
-                                        <a href="{{route('password.request')}}"
-                                            class="text-inherit fs-5">Forgot your password?</a>
-                                    </div>
-
+                                
+                                <!-- Footer -->
+                                <div class="mt-4 text-center">
+                                    <p class="mb-0 text-muted">Don't have an account? 
+                                        <a href="{{route('register')}}" class="text-primary fw-bold text-decoration-none ms-1">Create Account</a>
+                                    </p>
                                 </div>
-                            </div>
-
-
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 @endsection

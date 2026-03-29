@@ -1,210 +1,87 @@
 <div class="header">
-    <!-- navbar -->
-    <div class="navbar-custom navbar navbar-expand-lg">
-        <div class="container-fluid px-0">
-            <a class="navbar-brand d-block d-md-none" href="index-2.html">
-              <img src="{{ asset('assets/backend/images/brand/logo/logo-2.svg') }}" alt="Image">
-            </a>
-
-
-
-            <a id="nav-toggle" href="#!" class="ms-auto ms-md-0 me-0 me-lg-3 ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                    class="bi bi-text-indent-left text-muted" viewBox="0 0 16 16">
-                    <path
-                        d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-                </svg></a>
-
-            <div class="d-none d-md-none d-lg-block">
-                <!-- Form -->
-                <form action="#">
-
-
-                    <div class="input-group ">
-                        <input class="form-control rounded-3" type="search" value="" id="searchInput"
-                            placeholder="Search">
-                        <span class="input-group-append">
-                            <button class="btn  ms-n10 rounded-0 rounded-end" type="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="feather feather-search text-dark">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                            </button>
-                        </span>
-                    </div>
-                </form>
-            </div>
-            <!--Navbar nav -->
-            <ul class="navbar-nav navbar-right-wrap ms-lg-auto d-flex nav-top-wrap align-items-center ms-4 ms-lg-0">
-                <a href="#"
-                    class="form-check form-switch theme-switch btn btn-ghost btn-icon rounded-circle mb-0 ">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                    <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-
+    <nav class="navbar-custom navbar navbar-expand-lg">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center">
+                <a id="nav-toggle" href="#!" class="btn btn-ghost btn-icon rounded-circle me-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
                 </a>
-                </li>
-{{-- 
-                <li class="dropdown stopevent ms-2">
-                    <a class="btn btn-ghost btn-icon rounded-circle" href="#!" role="button"
-                        id="dropdownNotification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="icon-xs" data-feather="bell"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"
-                        aria-labelledby="dropdownNotification">
-                        <div>
-                            <div
-                                class="border-bottom px-3 pt-2 pb-3 d-flex
-      justify-content-between align-items-center">
-                                <p class="mb-0 text-dark fw-medium fs-4">Notifications</p>
-                                <a href="#!" class="text-muted">
-                                    <span>
-                                        <i class="me-1 icon-xs" data-feather="settings"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div data-simplebar style="height: 250px;">
-                                <!-- List group -->
-                                <ul class="list-group list-group-flush notification-list-scroll">
-                                    <!-- List group item -->
-                                    <li class="list-group-item bg-light">
 
-
-                                        <a href="#!" class="text-muted">
-                                            <h5 class=" mb-1">Rishi Chopra</h5>
-                                            <p class="mb-0">
-                                                Mauris blandit erat id nunc blandit, ac eleifend dolor pretium.
-                                            </p>
-                                        </a>
-
-
-
-                                    </li>
-                                    <!-- List group item -->
-                                    <li class="list-group-item">
-
-
-                                        <a href="#!" class="text-muted">
-                                            <h5 class=" mb-1">Neha Kannned</h5>
-                                            <p class="mb-0">
-                                                Proin at elit vel est condimentum elementum id in ante. Maecenas
-                                                et sapien metus.
-                                            </p>
-                                        </a>
-
-
-
-                                    </li>
-                                    <!-- List group item -->
-                                    <li class="list-group-item">
-
-
-                                        <a href="#!" class="text-muted">
-                                            <h5 class=" mb-1">Nirmala Chauhan</h5>
-                                            <p class="mb-0">
-                                                Morbi maximus urna lobortis elit sollicitudin sollicitudieget
-                                                elit vel pretium.
-                                            </p>
-                                        </a>
-
-
-
-                                    </li>
-                                    <!-- List group item -->
-                                    <li class="list-group-item">
-
-
-                                        <a href="#!" class="text-muted">
-                                            <h5 class=" mb-1">Sina Ray</h5>
-                                            <p class="mb-0">
-                                                Sed aliquam augue sit amet mauris volutpat hendrerit sed nunc eu
-                                                diam.
-                                            </p>
-                                        </a>
-
-
-
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="border-top px-3 py-2 text-center">
-                                <a href="#!" class="text-inherit ">
-                                    View all Notifications
-                                </a>
-                            </div>
+                <div class="d-none d-md-block">
+                    <form action="#" class="ms-2">
+                        <div class="input-group input-group-merge shadow-none border-0 bg-light rounded-pill px-3 py-1" style="width: 300px;">
+                            <span class="input-group-text bg-transparent border-0 pe-2">
+                                <i data-feather="search" class="icon-xs text-muted"></i>
+                            </span>
+                            <input class="form-control bg-transparent border-0 shadow-none ps-0 py-1" type="search" placeholder="Search resources..." aria-label="Search">
                         </div>
+                    </form>
+                </div>
+            </div>
+
+            <ul class="navbar-nav navbar-right-wrap ms-auto d-flex nav-top-wrap align-items-center">
+                <!-- Theme Switcher -->
+                <li class="nav-item">
+                    <div class="form-check form-switch theme-switch btn btn-ghost btn-icon rounded-circle mb-0">
+                        <input class="form-check-input d-none" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label mb-0" for="flexSwitchCheckDefault">
+                            <i data-feather="moon" class="icon-xs"></i>
+                        </label>
                     </div>
-                </li> --}}
-                <!-- List -->
-                <li class="dropdown ms-2">
-                    <a class="rounded-circle" href="#!" role="button" id="dropdownUser" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                </li>
+
+                <!-- User Dropdown -->
+                <li class="dropdown ms-3">
+                    <a class="avatar-dropdown-toggle" href="#!" role="button" id="dropdownUser" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="avatar avatar-md avatar-indicators avatar-online">
                             @php
                                 $user = auth()->user();
-                                $firstName = $user->first_name ?? 'User';
+                                $firstName = $user->first_name ?? 'U';
                                 $initial = strtoupper(substr($firstName, 0, 1));
-                                $colors = ['primary', 'success', 'info', 'warning', 'danger', 'secondary'];
+                                $colors = ['primary', 'success', 'info', 'warning', 'danger'];
                                 $colorIndex = ord($initial) % count($colors);
                                 $bgColor = $colors[$colorIndex];
                             @endphp
-                            <div class="rounded-circle bg-{{ $bgColor }} text-white d-flex align-items-center justify-content-center"
-                                 style="width: 40px; height: 40px; font-weight: 600; font-size: 16px;">
+                            <div class="rounded-circle bg-{{ $bgColor }} text-white d-flex align-items-center justify-content-center border border-2 border-white shadow-sm"
+                                 style="width: 38px; height: 38px; font-weight: 700; font-size: 15px;">
                                 {{ $initial }}
                             </div>
                         </div>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
-                        <div class="px-4 pb-0 pt-2">
-
-
-                            <div class="lh-1 ">
-                                <h5 class="mb-1">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</h5>
-                                {{-- <a href="#!" class="text-inherit fs-6">View my profile</a> --}}
+                    <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 mt-2 p-2 rounded-lg" style="min-width: 220px;" aria-labelledby="dropdownUser">
+                        <div class="px-3 py-3 border-bottom-0">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-sm rounded-circle bg-light-{{ $bgColor }} text-{{ $bgColor }} d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px; font-weight: 700;">
+                                    {{ $initial }}
+                                </div>
+                                <div class="lh-1">
+                                    <h6 class="mb-0 fw-bold">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</h6>
+                                    <p class="mb-0 small text-muted mt-1">{{ auth()->user()->email }}</p>
+                                </div>
                             </div>
-                            <div class=" dropdown-divider mt-3 mb-2"></div>
                         </div>
-
-                        <ul class="list-unstyled">
-
-                            {{-- <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#!">
-                                    <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
-                                    Profile
-                                </a>
-                            </li> --}}
-                            {{-- <li>
-                                <a class="dropdown-item" href="#!">
-                                    <i class="me-2 icon-xxs dropdown-item-icon" data-feather="activity"></i>Activity
-                                    Log
-                                </a>
-
-
-                            </li> --}}
-
-
-                            {{-- <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#!">
-
-                                    <i class="me-2 icon-xxs dropdown-item-icon" data-feather="settings"></i>Settings
-                                </a>
-                            </li> --}}
-                            <li>
-                                <form class="dropdown-item" method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button
-                                        style="border: none; background: transparent; margin: 0px; padding: 0px;"><i
-                                            class="me-2 icon-xxs dropdown-item-icon" data-feather="power"></i>Sign
-                                        Out</button>
-                                </form>
-                            </li>
-                        </ul>
-
+                        <div class="dropdown-divider opacity-50"></div>
+                        <a class="dropdown-item d-flex align-items-center rounded-sm py-2" href="#!">
+                            <i class="me-2 icon-xxs" data-feather="user"></i>
+                            <span>My Profile</span>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center rounded-sm py-2" href="#!">
+                            <i class="me-2 icon-xxs" data-feather="settings"></i>
+                            <span>Account Settings</span>
+                        </a>
+                        <div class="dropdown-divider opacity-50"></div>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="dropdown-item d-flex align-items-center rounded-sm py-2 text-danger">
+                                <i class="me-2 icon-xxs text-danger" data-feather="power"></i>
+                                <span>Sign Out</span>
+                            </button>
+                        </form>
                     </div>
                 </li>
             </ul>
         </div>
-    </div>
+    </nav>
 </div>
+
